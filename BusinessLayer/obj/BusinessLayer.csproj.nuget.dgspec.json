@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj": {}
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj": {
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\BusinessLayer\\obj\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",

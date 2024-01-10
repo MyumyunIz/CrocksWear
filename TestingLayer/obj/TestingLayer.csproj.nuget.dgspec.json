@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\TestingLayer\\TestingLayer.csproj": {}
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\TestingLayer\\TestingLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\TestingLayer\\TestingLayer.csproj": {
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\TestingLayer\\TestingLayer.csproj",
-        "projectName": "TestingLayer",
-        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\TestingLayer\\TestingLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
+        "projectName": "BusinessLayer",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (4)\\crockswear-main\\TestingLayer\\obj\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,7 +44,257 @@
               "target": "Package",
               "version": "[7.0.14, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj",
+        "projectName": "DataLayer",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj",
+        "projectName": "ServiceLayer",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj",
+        "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj"
+              },
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Security.Cryptography.ProtectedData": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\TestingLayer\\TestingLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\TestingLayer\\TestingLayer.csproj",
+        "projectName": "TestingLayer",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\TestingLayer\\TestingLayer.csproj",
+        "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\TestingLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj"
+              },
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj"
+              },
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
             "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.14, )"
             },
@@ -56,19 +306,21 @@
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.3.2, )"
+              "version": "[17.8.0, )"
             },
             "NUnit": {
               "target": "Package",
-              "version": "[3.13.3, )"
+              "version": "[4.0.1, )"
             },
             "NUnit.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.3.0, )"
+              "version": "[3.10.0, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.5.0, )"
             },
             "coverlet.collector": {
               "target": "Package",
@@ -89,6 +341,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"

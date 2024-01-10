@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RhdJULrhUKViYASqRoMIX22EUIAJLVl6x/pbMGW5oZZbeDPeM9BMgxDBGGnyElP01uOADPIZl/wU5uEqLuhH5w==",
+  "dgSpecHash": "gtxQbMnfHYXhill76GGxL3J2AgkZeArBezjvyvX9NLuHIFvjxPNtKdEImj2F75rI1JH9ScW6zHbHfBI8BGe9Xw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\ServiceLayer\\ServiceLayer.csproj",
+  "projectFilePath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Myumyun\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace TestingLayer
 {
@@ -48,7 +49,7 @@ namespace TestingLayer
             await context.CreateAsync(newUser);
 
             int usersAfter = SetupFixture.dbContext.Users.Count();
-            Assert.IsTrue(usersBefore + 1 == usersAfter, "Create() does not work!");
+            Assert.That(usersBefore + 1 == usersAfter, "Create() does not work!");
         }
 
         [Test]
@@ -56,7 +57,9 @@ namespace TestingLayer
         {
             User readUser = await context.ReadAsync(u1.Id);
 
-            Assert.AreEqual(u1, readUser, "Read does not return the same object!");
+         
+            Assert.That(u1,Is.EqualTo( readUser), "Read does not return the same object!");
+
         }
 
         [Test]
@@ -84,13 +87,13 @@ namespace TestingLayer
             await context.DeleteAsync(u1.Id);
             int usersAfter = SetupFixture.dbContext.Users.Count();
 
-            Assert.IsTrue(usersBefore - 1 == usersAfter, "Delete() does not work! 👎🏻");
+            Assert.That(usersBefore - 1 == usersAfter, "Delete() does not work! 👎🏻");
         }
         [Test]
         public void TestMethod()
         {
             var answer = 42;
-            Assert.IsTrue(answer == 42, "Some useful error message");
+            Assert.That(answer == 42, "Some useful error message");
         }
     }
 

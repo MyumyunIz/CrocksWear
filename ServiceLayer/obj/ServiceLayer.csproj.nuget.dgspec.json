@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\ServiceLayer\\ServiceLayer.csproj": {}
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj": {
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\obj\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\DataLayer\\DataLayer.csproj",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\DataLayer\\obj\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -99,8 +99,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj"
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj"
               }
             }
           }
@@ -150,14 +150,14 @@
         }
       }
     },
-    "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\ServiceLayer\\ServiceLayer.csproj": {
+    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\ServiceLayer\\ServiceLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj",
         "projectName": "ServiceLayer",
-        "projectPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\ServiceLayer\\ServiceLayer.csproj",
+        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj",
         "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\ServiceLayer\\obj\\",
+        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -174,11 +174,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\BusinessLayer\\BusinessLayer.csproj"
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj"
               },
-              "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\Myumyun\\Desktop\\crockswear-main\\DataLayer\\DataLayer.csproj"
+              "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\DataLayer\\DataLayer.csproj"
               }
             }
           }
