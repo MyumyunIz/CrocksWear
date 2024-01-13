@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gtxQbMnfHYXhill76GGxL3J2AgkZeArBezjvyvX9NLuHIFvjxPNtKdEImj2F75rI1JH9ScW6zHbHfBI8BGe9Xw==",
+  "dgSpecHash": "64nHxW74lCtztLqe1sx2LhqJ4lbtcmP3MoIQ9hucl/fXWNMEuQ0YS14oO+VlHX9SXJiDijig0EHi4CT5y5ZLfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\ServiceLayer\\ServiceLayer.csproj",
+  "projectFilePath": "D:\\Projects\\Github Repositories\\CrocksWear\\ServiceLayer\\ServiceLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Myumyun\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -41,8 +41,6 @@
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\Myumyun\\.nuget\\packages\\nunit\\4.0.1\\nunit.4.0.1.nupkg.sha512",
-    "C:\\Users\\Myumyun\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

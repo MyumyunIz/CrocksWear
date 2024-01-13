@@ -13,6 +13,8 @@ namespace TestingLayer
     {
         private UserContext context = new UserContext(SetupFixture.dbContext);
         private OrderContext orderContext = new OrderContext(SetupFixture.dbContext);
+        private ManagerContext managerContext = new ManagerContext(SetupFixture.dbContext);
+        private ShoeContext shoeContext = new ShoeContext(SetupFixture.dbContext);
         private User u1;
         private Order o1;
         private Shoe s1;
@@ -21,13 +23,16 @@ namespace TestingLayer
         [SetUp]
         public async Task CreateUser()
         {
-            u1 = new User(10,"david","davidgrizman@gmail.com","123123123");
+            u1 = new User("david","davidgrizman@gmail.com","123123123");
             await context.CreateAsync(u1);
-            m1 = new Manager(10, "myumyun", "myumyun@gmail.com", "12313234", "0894458934");
-            s1 = new Shoe(10,38,"nike","airmax" , 159,"white","obuvki",m1);
-            o1 = new Order(10,u1,s1,2,318,158, OrderStatus.InProgress);
+            m1 = new Manager("myumyun", "myumyun@gmail.com", "12313234", "0894458934");
+            await managerContext.CreateAsync(m1);
+            s1 = new Shoe(38,"nike","airmax" , 159,"white","obuvki",m1);
+            await shoeContext.CreateAsync(s1);
+            o1 = new Order(u1,s1,2,318,158, OrderStatus.InProgress);
             await orderContext.CreateAsync(o1);
             u1.Orders.Add(o1);
+            
         }
 
         [TearDown]
@@ -43,7 +48,7 @@ namespace TestingLayer
         [Test]
         public async Task Create()
         {
-            User newUser = new User(14, "david", "davidgrizman@gmail.com", "123123123");
+            User newUser = new User("david", "davidgrizman@gmail.com", "123123123");
 
             int usersBefore = SetupFixture.dbContext.Users.Count();
             await context.CreateAsync(newUser);
@@ -55,19 +60,20 @@ namespace TestingLayer
         [Test]
         public async Task Read()
         {
-            User readUser = await context.ReadAsync(u1.Id);
+            User readUser = await context.ReadAsync(u1.Id,false,false);
 
          
-            Assert.That(u1,Is.EqualTo( readUser), "Read does not return the same object!");
+            Assert.AreEqual(u1, readUser, "Read does not return the same object!");
+            //Assert.That(u1,Is.EqualTo( readUser), "Read does not return the same object!");
 
         }
 
         [Test]
         public async Task ReadWithNavigationalProperties()
         {
-            User readUser = await context.ReadAsync(u1.Id,true);
+            User readUser = await context.ReadAsync(u1.Id,true,false);
 
-            Assert.That(readUser.Orders.Contains(o1), "o1 is not in the bottles list!");
+            Assert.That(readUser.Orders.Contains(o1), "o1 is not in the orders list!");
 
         }
 

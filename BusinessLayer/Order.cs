@@ -36,9 +36,8 @@ namespace BusinessLayer
 
 
 
-        public Order(int id,User user, Shoe shoe, int quantity, decimal price, decimal shoeprice, OrderStatus status)
+        public Order(User user, Shoe shoe, int quantity, decimal price, decimal shoeprice, OrderStatus status)
         {
-            this.Id= id;
             this.Shoe= shoe;
             this.Quantity= quantity;
             this.Price= price;

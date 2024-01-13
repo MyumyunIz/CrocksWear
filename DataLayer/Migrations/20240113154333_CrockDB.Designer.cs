@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(CrockDBContext))]
-    [Migration("20231119205846_Myumyun")]
-    partial class Myumyun
+    [Migration("20240113154333_CrockDB")]
+    partial class CrockDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

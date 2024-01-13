@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {}
+    "D:\\Projects\\Github Repositories\\CrocksWear\\BusinessLayer\\BusinessLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj": {
+    "D:\\Projects\\Github Repositories\\CrocksWear\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
+        "projectUniqueName": "D:\\Projects\\Github Repositories\\CrocksWear\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\BusinessLayer.csproj",
+        "projectPath": "D:\\Projects\\Github Repositories\\CrocksWear\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Myumyun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Myumyun\\Desktop\\New folder (5)\\CrocksWear-main\\BusinessLayer\\obj\\",
+        "outputPath": "D:\\Projects\\Github Repositories\\CrocksWear\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Myumyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

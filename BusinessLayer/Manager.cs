@@ -33,8 +33,7 @@ namespace BusinessLayer
             Shoes = new List<Shoe>();
         }
 
-        public Manager(int id, string name, string email, string password, string phone) {
-            this.Id= id;
+        public Manager(string name, string email, string password, string phone) {
             this.Name= name;
             this.Email= email;
             this.Password= password;

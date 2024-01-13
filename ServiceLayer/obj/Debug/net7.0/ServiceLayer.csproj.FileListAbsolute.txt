@@ -48,3 +48,23 @@ C:\Users\Myumyun\Desktop\New folder (5)\CrocksWear-main\ServiceLayer\obj\Debug\n
 C:\Users\Myumyun\Desktop\New folder (5)\CrocksWear-main\ServiceLayer\obj\Debug\net7.0\ServiceLayer.pdb
 C:\Users\Myumyun\Desktop\New folder (5)\CrocksWear-main\ServiceLayer\obj\Debug\net7.0\ServiceLayer.genruntimeconfig.cache
 C:\Users\Myumyun\Desktop\New folder (5)\CrocksWear-main\ServiceLayer\obj\Debug\net7.0\ref\ServiceLayer.dll
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\ServiceLayer.deps.json
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\ServiceLayer.runtimeconfig.json
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\ServiceLayer.dll
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\ServiceLayer.pdb
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\BusinessLayer.dll
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\DataLayer.dll
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\BusinessLayer.pdb
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\bin\Debug\net7.0\DataLayer.pdb
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.csproj.AssemblyReference.cache
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.AssemblyInfoInputs.cache
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.AssemblyInfo.cs
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.csproj.CoreCompileInputs.cache
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.sourcelink.json
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.csproj.CopyComplete
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.dll
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\refint\ServiceLayer.dll
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.pdb
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ServiceLayer.genruntimeconfig.cache
+D:\Projects\Github Repositories\CrocksWear\ServiceLayer\obj\Debug\net7.0\ref\ServiceLayer.dll

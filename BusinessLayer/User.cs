@@ -27,9 +27,8 @@ namespace BusinessLayer
             Orders = new List<Order>();
         }
 
-        public User(int id, string name, string email, string password)
+        public User(string name, string email, string password)
         {
-            this.Id= id;
             this.Name= name;
             this.Email= email;
             this.Password= password;

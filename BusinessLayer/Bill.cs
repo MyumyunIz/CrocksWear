@@ -28,8 +28,7 @@ namespace BusinessLayer
             Orders = new List<Order>();
         }
 
-        public Bill(int id, User user, string address, string bankcard, decimal price, List<Order> orders) {
-            this.Id = id;
+        public Bill(User user, string address, string bankcard, decimal price, List<Order> orders) {
             this.User = user;
             this.Address = address;
             this.BankCard = bankcard;

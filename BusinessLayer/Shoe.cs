@@ -44,9 +44,8 @@ namespace BusinessLayer
         {
             Orders= new List<Order> ();
         }
-        public Shoe(int id, int size, string brand, string model, decimal price, string color, string description, Manager manager)
+        public Shoe(int size, string brand, string model, decimal price, string color, string description, Manager manager)
         {
-                this.Id = id;
                 this.Brand = brand;
                 this.Model = model;
                 this.Size = size;
