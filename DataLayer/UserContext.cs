@@ -9,7 +9,7 @@ using DataLayer;
 
 namespace DataLayer
 {
-    public class UserContext : IDB<User, int>
+    public class UserContext : IDB<User, string>
     {
         private readonly CrockDBContext dbContext;
 
@@ -31,7 +31,7 @@ namespace DataLayer
             }
         }
 
-        public async Task DeleteAsync(int key)
+        public async Task DeleteAsync(string key)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<User> ReadAsync(int key, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<User> ReadAsync(string key, bool useNavigationalProperties = false, bool isReadOnly = true)
         {
             try
             {

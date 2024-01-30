@@ -295,16 +295,8 @@ D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microso
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Caching.Memory.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
-D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Identity.Client.dll
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
@@ -420,3 +412,9 @@ D:\Projects\Github Repositories\CrocksWear\TestingLayer\obj\Debug\net7.0\refint\
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\obj\Debug\net7.0\TestingLayer.pdb
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\obj\Debug\net7.0\TestingLayer.genruntimeconfig.cache
 D:\Projects\Github Repositories\CrocksWear\TestingLayer\obj\Debug\net7.0\ref\TestingLayer.dll
+D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+D:\Projects\Github Repositories\CrocksWear\TestingLayer\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
