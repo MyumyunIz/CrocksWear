@@ -1,4 +1,7 @@
 using PresentationLayer.Components;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using DataLayer;
 
 namespace PresentationLayer
 {
@@ -7,6 +10,11 @@ namespace PresentationLayer
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var connectionString = builder.Configuration.GetConnectionString("CrockDBContextConnection") ?? throw new InvalidOperationException("Connection string 'CrockDBContextConnection' not found.");
+
+            builder.Services.AddDbContext<CrockDBContext>(options => options.UseSqlServer(connectionString));
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<CrockDBContext>();
 
             // Add services to the container.
             builder.Services.AddRazorComponents()

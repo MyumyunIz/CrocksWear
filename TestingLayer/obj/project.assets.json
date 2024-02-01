@@ -94,6 +94,23 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.15": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.15",
+          "Microsoft.Extensions.Identity.Stores": "7.0.15"
+        },
+        "compile": {
+          "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Identity.UI/7.0.15": {
         "type": "package",
         "dependencies": {
@@ -315,10 +332,10 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/7.0.14": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
@@ -2271,8 +2288,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.15",
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
-          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
           "Microsoft.Extensions.Identity.Core": "7.0.15"
         },
@@ -2288,8 +2306,9 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "BusinessLayer": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.15",
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
-          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
           "Microsoft.Extensions.Identity.Core": "7.0.15"
         },
@@ -2306,8 +2325,9 @@
         "dependencies": {
           "BusinessLayer": "1.0.0",
           "DataLayer": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.15",
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
-          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
           "Microsoft.Extensions.Identity.Core": "7.0.15",
           "System.Security.Cryptography.ProtectedData": "8.0.0"
@@ -2465,6 +2485,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
         "microsoft.aspnetcore.cryptography.keyderivation.7.0.15.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.15": {
+      "sha512": "iGQP43LWSYL9+pDCvV5qF1ByUkyfFyMUfJkwFq7U3izTcNjGgfWJIy4np31A7qtNTxB5bafBga1W7b0c37L++A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/7.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
+        "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
+        "microsoft.aspnetcore.identity.entityframeworkcore.7.0.15.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Identity.UI/7.0.15": {
@@ -2906,17 +2941,17 @@
         "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.14": {
-      "sha512": "MrVBnWOFYwfLMGQfrcIuqEM9Xvokv1vJeYxqNH3K3xOtAdHwHQTrKnpDP97tU+LBlvcnyXAtAtryYcpLXWtRNA==",
+    "Microsoft.EntityFrameworkCore.Relational/7.0.15": {
+      "sha512": "D03N/DF3lmtHHVd0RqHxZg+rtd3r8C4h7RJoy/ShxQA0r6rpJ/99ZA6HY9WeEgqsRbm2M8Lmj9MwJomcsJ+4GQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/7.0.14",
+      "path": "microsoft.entityframeworkcore.relational/7.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.7.0.14.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.7.0.15.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
@@ -7068,6 +7103,7 @@
     "net7.0": [
       "BusinessLayer >= 1.0.0",
       "DataLayer >= 1.0.0",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.15",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.15",
       "Microsoft.EntityFrameworkCore >= 7.0.15",
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.14",
@@ -7135,6 +7171,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.15, )"
+          },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
             "version": "[7.0.15, )"

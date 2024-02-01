@@ -1,11 +1,12 @@
 ﻿using BusinessLayer;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Reflection.Metadata;
 
 namespace DataLayer
 {
-    public class CrockDBContext : DbContext
+    public class CrockDBContext : IdentityDbContext<User>
     {
         public CrockDBContext()
         {

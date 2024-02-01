@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Azure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace BusinessLayer
             Orders = new List<Order>();
         }
 
-        public User(string name, string email, string password)
+        public User(string name, string email, string password) 
         {
             this.Name= name;
             this.Email= email;
@@ -35,6 +36,21 @@ namespace BusinessLayer
 
             Orders = new List<Order>();
 
+        }
+        public User(string id,string name, string email, string password) 
+            : this(name,email,password)
+        {
+            this.Id = id;
+
+        }
+        public override string ToString()
+        {
+            return string.Format($"{Id} {Name} {Email}");
+        }
+
+        public static explicit operator User(ValueTask<IdentityUser> v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

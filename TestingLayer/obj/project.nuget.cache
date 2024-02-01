@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "W/zUM4pW5w8xt8cpxu18Sx3NrM7EWTeHKz5Lwf63/yhOW+3fZkrzzBEdlcanoEEoxGZLipq8UKrL23puXHuv/g==",
+  "dgSpecHash": "dlLWhF4joI+PRyzDI3hU2wlv3gUI+G3+WWFQyp6h148uPpgrtJur2+pvuZCED0Y0qxEpWN5Vckg1KD7+jHsmMg==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Github Repositories\\CrocksWear\\TestingLayer\\TestingLayer.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Myumyun\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.15\\microsoft.aspnetcore.cryptography.internal.7.0.15.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.15\\microsoft.aspnetcore.cryptography.keyderivation.7.0.15.nupkg.sha512",
+    "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.15\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.15.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.15\\microsoft.aspnetcore.identity.ui.7.0.15.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
@@ -22,7 +23,7 @@
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.15\\microsoft.entityframeworkcore.analyzers.7.0.15.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.14\\microsoft.entityframeworkcore.design.7.0.14.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.14\\microsoft.entityframeworkcore.inmemory.7.0.14.nupkg.sha512",
-    "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.14\\microsoft.entityframeworkcore.relational.7.0.14.nupkg.sha512",
+    "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.15\\microsoft.entityframeworkcore.relational.7.0.15.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.14\\microsoft.entityframeworkcore.sqlserver.7.0.14.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.14\\microsoft.entityframeworkcore.tools.7.0.14.nupkg.sha512",
     "C:\\Users\\Myumyun\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",

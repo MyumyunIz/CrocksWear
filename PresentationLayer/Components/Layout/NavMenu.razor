@@ -30,6 +30,9 @@
  *@
 
 
+
+
+@using Microsoft.AspNetCore.Components.Authorization
 <nav>
     <div class="logo">Crockswear</div>
     <ul class="nav-links">
@@ -37,6 +40,19 @@
         <li><a href="#about">About</a></li>
         <li><a href="#collection">Collection</a></li>
         <li><a href="#contact">Contact</a></li>
+       
+    <AuthorizeView>
+        <Authorized>
+                <li><a href="Account/Manage">Hello, @context.User.Identity?.Name!</a></li>
+                <li><a href="../areas/Identity/pages/Account/Logout.razor">Log out</a></li>
+        </Authorized>
+        <NotAuthorized>
+                <li><a href="../Areas/Identity/Pages/Account/Register.razor">Register</a></li>
+                <li><a href="../Areas/Identity/Pages/Account/Login.razor">Log in</a></li>
+
+        </NotAuthorized>
+    </AuthorizeView>
+    
     </ul>
 </nav>
 
