@@ -111,10 +111,8 @@ namespace DataLayer
             {
                 User userFromDb = await ReadAsync(item.Id, true, false);
 
-               
-                userFromDb.Name = item.Name;
+               userFromDb.UserName = item.UserName;
                 userFromDb.Email = item.Email;
-                userFromDb.Password = item.Password;
 
                 
                 if (useNavigationalProperties)

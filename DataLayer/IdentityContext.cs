@@ -42,6 +42,7 @@ namespace DataLayer
                 await userManager.AddToRoleAsync(adminIdentityUser, Role.Administrator.ToString());
                 await userManager.AddPasswordAsync(adminIdentityUser, password);
                 await userManager.SetEmailAsync(adminIdentityUser, email);
+               
             }
         }
 
@@ -51,16 +52,16 @@ namespace DataLayer
 
         //CRUD
 
-        public async Task CreateUserAsync(string username, string password, string email, string name, Role role)
+        public async Task<Tuple<IdentityResult,User>> CreateUserAsync(string username, string password, string email, Role role)
         {
             try
             {
-                User user = new User(username, email, name);
+                User user = new User(username, email);
                 IdentityResult result = await userManager.CreateAsync(user, password);
 
                 if (!result.Succeeded)
                 {
-                    throw new ArgumentException(result.Errors.First().Description);
+                    return new Tuple<IdentityResult,User>(result,user);
                 }
 
                 if (role == Role.Administrator)
@@ -71,6 +72,7 @@ namespace DataLayer
                 {
                     await userManager.AddToRoleAsync(user, Role.User.ToString());
                 }
+                return new Tuple<IdentityResult,User>(IdentityResult.Success,user);
             }
             catch (Exception ex)
             {
@@ -106,11 +108,16 @@ namespace DataLayer
             }
         }
 
-        public async Task<User> ReadUserAsync(string key)
+        public async Task<User> ReadUserAsync(string key,bool useNavigationalProperties)
         {
             try
             {
+                if(useNavigationalProperties)
+                {
+                    return  await context.Users.Include(x => x.Orders).SingleOrDefaultAsync(x=>x.Id==key);
+                }
                 return await userManager.FindByIdAsync(key);
+
             }
             catch (Exception)
             {
@@ -118,10 +125,14 @@ namespace DataLayer
             }
         }
 
-        public async Task<IEnumerable<User>> ReadAllUsersAsync()
+        public async Task<IEnumerable<User>> ReadAllUsersAsync(bool useNavigationalProperties)
         {
             try
             {
+                if(useNavigationalProperties)
+                {
+                    return await context.Users.Include(x => x.Orders).ToListAsync();
+                }
                 return await context.Users.ToListAsync();
             }
             catch (Exception ex)
@@ -130,7 +141,7 @@ namespace DataLayer
             }
         }
 
-        public async Task UpdateUserAsync(string id, string username, string name)
+        public async Task UpdateUserAsync(string id, string username)
         {
             try
             {
@@ -138,7 +149,6 @@ namespace DataLayer
                 {
                     User user = await context.Users.FindAsync(id);
                     user.UserName = username;
-                    user.Name = name;
                     await userManager.UpdateAsync(user);
                 }
             }

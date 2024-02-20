@@ -12,15 +12,9 @@ namespace BusinessLayer
 {
     public class User : IdentityUser
     {
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; }
-        [Required]
-        [MaxLength(50)]
-        public string Email { get; set; }
-        [Required]
-        [MaxLength(50)]
-        public string Password { get; set; }
+        
+        
+        
         public List<Order> Orders { get; set; }
         
 
@@ -28,24 +22,19 @@ namespace BusinessLayer
             Orders = new List<Order>();
         }
 
-        public User(string name, string email, string password) 
+        public User(string username, string email) 
         {
-            this.Name= name;
+            this.UserName= username;
             this.Email= email;
-            this.Password= password;
+
 
             Orders = new List<Order>();
 
         }
-        public User(string id,string name, string email, string password) 
-            : this(name,email,password)
-        {
-            this.Id = id;
-
-        }
+        
         public override string ToString()
         {
-            return string.Format($"{Id} {Name} {Email}");
+            return string.Format($"{Id} {UserName} {Email}");
         }
 
         public static explicit operator User(ValueTask<IdentityUser> v)

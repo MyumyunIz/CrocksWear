@@ -23,7 +23,7 @@ namespace TestingLayer
         [SetUp]
         public async Task CreateUser()
         {
-            u1 = new User("david","davidgrizman@gmail.com","123123123");
+            u1 = new User("david","davidgrizman@gmail.com");
             await context.CreateAsync(u1);
             m1 = new Manager("myumyun", "myumyun@gmail.com", "12313234", "0894458934");
             await managerContext.CreateAsync(m1);
@@ -48,7 +48,7 @@ namespace TestingLayer
         [Test]
         public async Task Create()
         {
-            User newUser = new User("david", "davidgrizman@gmail.com", "123123123");
+            User newUser = new User("david", "davidgrizman@gmail.com");
 
             int usersBefore = SetupFixture.dbContext.Users.Count();
             await context.CreateAsync(newUser);
