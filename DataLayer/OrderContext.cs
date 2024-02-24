@@ -35,7 +35,7 @@ namespace DataLayer
         {
             try
             {
-                Order orderFromDb = await ReadAsync(key, false, false);
+                Order orderFromDb = await ReadAsync(key);
 
                 if (orderFromDb != null)
                 {
@@ -53,7 +53,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<ICollection<Order>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<ICollection<Order>> ReadAllAsync(bool useNavigationalProperties = false)
         {
             try
             {
@@ -67,10 +67,7 @@ namespace DataLayer
                 }
 
                 // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
+                
 
                 return await query.ToListAsync();
             }
@@ -80,7 +77,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<Order> ReadAsync(int key, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<Order> ReadAsync(int key, bool useNavigationalProperties = false)
         {
             try
             {
@@ -93,12 +90,7 @@ namespace DataLayer
                                  .Include(o => o.Bill);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
-
+                
                 return await query.FirstOrDefaultAsync(o => o.Id == key);
             }
             catch (Exception)
@@ -111,7 +103,7 @@ namespace DataLayer
         {
             try
             {
-                Order orderFromDb = await ReadAsync(item.Id, true, false);
+                Order orderFromDb = await ReadAsync(item.Id, useNavigationalProperties);
 
                 
                 orderFromDb.Quantity = item.Quantity;

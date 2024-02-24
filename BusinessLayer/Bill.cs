@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace BusinessLayer
         [Required]
         public string BankCard { get; set; }
         [Required]
+        [Precision(18, 2)]
         public decimal Price { get; set; }
         [Required]
         public List<Order> Orders { get; set; }

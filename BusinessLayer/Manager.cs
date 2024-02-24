@@ -8,37 +8,25 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class Manager
+    public class Manager: User
     {
-        [Key] 
-        public int Id { get; set; }
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; }
-        [Required]
-        [MaxLength(100)]
-        public string Email { get; set; }
-        [Required]
-        [MaxLength(50)]
-        public string Password { get; set; }
-        [Required]
-        [MaxLength(12)]
-        public string Phone { get; set; }
+        
 
         public List<Shoe> Shoes { get; set; }
         public List<Bill> Bills { get; set; }
 
         public Manager() {
-
+            Orders = new List<Order> ();
             Bills= new List<Bill>();
             Shoes = new List<Shoe>();
         }
 
-        public Manager(string name, string email, string password, string phone) {
-            this.Name= name;
+        public Manager(string name, string email, string phone) {
+            this.UserName= name;
             this.Email= email;
-            this.Password= password;
-            this.Phone= phone;
+            this.PhoneNumber= phone;
+
+            Orders = new List<Order>();
 
             Bills = new List<Bill>();
             Shoes = new List<Shoe>();

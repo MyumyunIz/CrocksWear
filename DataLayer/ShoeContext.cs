@@ -35,7 +35,7 @@ namespace DataLayer
         {
             try
             {
-                Shoe shoeFromDb = await ReadAsync(key, false, false);
+                Shoe shoeFromDb = await ReadAsync(key);
 
                 if (shoeFromDb != null)
                 {
@@ -53,7 +53,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<ICollection<Shoe>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<ICollection<Shoe>> ReadAllAsync(bool useNavigationalProperties = false)
         {
             try
             {
@@ -63,14 +63,11 @@ namespace DataLayer
                 if (useNavigationalProperties)
                 {
                     query = query.Include(s => s.Manager)
-                                 .Include(s => s.Orders);
+                                 .Include(s => s.Orders)
+                                 .Include(s => s.Images);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
+                
 
                 return await query.ToListAsync();
             }
@@ -80,7 +77,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<Shoe> ReadAsync(int key, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<Shoe> ReadAsync(int key, bool useNavigationalProperties = false)
         {
             try
             {
@@ -90,14 +87,11 @@ namespace DataLayer
                 if (useNavigationalProperties)
                 {
                     query = query.Include(s => s.Manager)
-                                 .Include(s => s.Orders);
+                                 .Include(s => s.Orders)
+                                 .Include(s => s.Images);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
+                
 
                 return await query.FirstOrDefaultAsync(s => s.Id == key);
             }
@@ -111,7 +105,7 @@ namespace DataLayer
         {
             try
             {
-                Shoe shoeFromDb = await ReadAsync(item.Id, true, false);
+                Shoe shoeFromDb = await ReadAsync(item.Id, useNavigationalProperties);
 
                 
                 shoeFromDb.Brand = item.Brand;
@@ -120,7 +114,7 @@ namespace DataLayer
                 shoeFromDb.Price = item.Price;
                 shoeFromDb.Color = item.Color;
                 shoeFromDb.Description = item.Description;
-
+                shoeFromDb.Icon_img = item.Icon_img;
                 
                 if (useNavigationalProperties)
                 {
@@ -146,9 +140,20 @@ namespace DataLayer
                             newOrders[i] = orderFromDb;
                         }
                     }
-                    shoeFromDb.Orders= newOrders;   
-                    
-                    
+                    shoeFromDb.Orders= newOrders;
+
+
+                    var newImages = item.Images.ToList();
+                    for (var i = 0;i<newImages.Count;i++)
+                    {
+                        Image image = dbContext.Images.FirstOrDefault(x=>x.Id==newImages[i].Id);
+                        if(image != null)
+                        {
+                            newImages[i] = image;
+                        }
+
+                    }
+                    shoeFromDb.Images= newImages;
                 }
 
                 await dbContext.SaveChangesAsync();

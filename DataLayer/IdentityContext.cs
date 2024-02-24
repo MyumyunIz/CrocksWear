@@ -15,7 +15,7 @@ namespace DataLayer
         UserManager<User> userManager;
         CrockDBContext context;
 
-        public IdentityContext(UserManager<User> userManager, CrockDBContext context)
+        public IdentityContext( CrockDBContext context, UserManager<User> userManager)
         {
             this.userManager = userManager;
             this.context = context;

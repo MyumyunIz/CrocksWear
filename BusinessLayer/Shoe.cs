@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessLayer
 {
@@ -22,6 +24,7 @@ namespace BusinessLayer
 
         [Required]
         [Range(5,5000)]
+        [Precision(18, 2)]
         public decimal Price { get; set; }
 
         [Required]
@@ -36,15 +39,18 @@ namespace BusinessLayer
 
         public List<Order> Orders { get; set; }
 
+        [Required]
+        public byte[] Icon_img { get; set; }       
 
-
-
+        public List<Image> Images { get; set; }
 
         public Shoe ()
         {
-            Orders= new List<Order> ();
+            Orders = new List<Order> ();
+            Images = new List<Image> ();
+
         }
-        public Shoe(int size, string brand, string model, decimal price, string color, string description, Manager manager)
+        public Shoe(int size, string brand, string model, decimal price, string color, string description,byte[] icon_img, Manager manager)
         {
                 this.Brand = brand;
                 this.Model = model;
@@ -52,10 +58,10 @@ namespace BusinessLayer
                 this.Price = price;  
                 this.Color = color; 
                 this.Description = description; 
-            this.Manager = manager;
-            Orders = new List<Order>();
-
-
+                this.Manager = manager;
+                Icon_img = icon_img;
+                Orders = new List<Order>();
+                Images = new List<Image>();
 
         }
     }

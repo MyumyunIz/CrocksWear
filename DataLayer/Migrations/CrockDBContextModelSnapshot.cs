@@ -38,10 +38,11 @@ namespace DataLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ManagerId")
-                        .HasColumnType("int");
+                    b.Property<string>("ManagerId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UserId")
@@ -54,10 +55,10 @@ namespace DataLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Bills");
+                    b.ToTable("Bill");
                 });
 
-            modelBuilder.Entity("BusinessLayer.Manager", b =>
+            modelBuilder.Entity("BusinessLayer.Image", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,29 +66,18 @@ namespace DataLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Email")
+                    b.Property<byte[]>("Image_bytes")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)");
+                    b.Property<int?>("ShoeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Managers");
+                    b.HasIndex("ShoeId");
+
+                    b.ToTable("Image");
                 });
 
             modelBuilder.Entity("BusinessLayer.Order", b =>
@@ -102,6 +92,7 @@ namespace DataLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Quantity")
@@ -111,6 +102,7 @@ namespace DataLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Shoeprice")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Status")
@@ -128,7 +120,7 @@ namespace DataLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("BusinessLayer.Shoe", b =>
@@ -153,8 +145,13 @@ namespace DataLayer.Migrations
                         .HasMaxLength(5000)
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ManagerId")
-                        .HasColumnType("int");
+                    b.Property<byte[]>("Icon_img")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ManagerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -162,6 +159,7 @@ namespace DataLayer.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Size")
@@ -171,7 +169,7 @@ namespace DataLayer.Migrations
 
                     b.HasIndex("ManagerId");
 
-                    b.ToTable("Shoes");
+                    b.ToTable("Shoe");
                 });
 
             modelBuilder.Entity("BusinessLayer.User", b =>
@@ -187,7 +185,6 @@ namespace DataLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -200,11 +197,6 @@ namespace DataLayer.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -212,11 +204,6 @@ namespace DataLayer.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -248,6 +235,8 @@ namespace DataLayer.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -383,6 +372,13 @@ namespace DataLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BusinessLayer.Manager", b =>
+                {
+                    b.HasBaseType("BusinessLayer.User");
+
+                    b.ToTable("Manager");
+                });
+
             modelBuilder.Entity("BusinessLayer.Bill", b =>
                 {
                     b.HasOne("BusinessLayer.Manager", null)
@@ -392,10 +388,17 @@ namespace DataLayer.Migrations
                     b.HasOne("BusinessLayer.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Image", b =>
+                {
+                    b.HasOne("BusinessLayer.Shoe", null)
+                        .WithMany("Gallery")
+                        .HasForeignKey("ShoeId");
                 });
 
             modelBuilder.Entity("BusinessLayer.Order", b =>
@@ -403,13 +406,13 @@ namespace DataLayer.Migrations
                     b.HasOne("BusinessLayer.Bill", "Bill")
                         .WithMany("Orders")
                         .HasForeignKey("BillId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("BusinessLayer.Shoe", "Shoe")
                         .WithMany("Orders")
                         .HasForeignKey("ShoeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("BusinessLayer.User", null)
@@ -426,7 +429,7 @@ namespace DataLayer.Migrations
                     b.HasOne("BusinessLayer.Manager", "Manager")
                         .WithMany("Shoes")
                         .HasForeignKey("ManagerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Manager");
@@ -483,7 +486,28 @@ namespace DataLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BusinessLayer.Manager", b =>
+                {
+                    b.HasOne("BusinessLayer.User", null)
+                        .WithOne()
+                        .HasForeignKey("BusinessLayer.Manager", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BusinessLayer.Bill", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Shoe", b =>
+                {
+                    b.Navigation("Gallery");
+
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("BusinessLayer.User", b =>
                 {
                     b.Navigation("Orders");
                 });
@@ -493,16 +517,6 @@ namespace DataLayer.Migrations
                     b.Navigation("Bills");
 
                     b.Navigation("Shoes");
-                });
-
-            modelBuilder.Entity("BusinessLayer.Shoe", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("BusinessLayer.User", b =>
-                {
-                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

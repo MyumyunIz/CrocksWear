@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,9 +22,11 @@ namespace BusinessLayer
         public int Quantity { get; set; }
         [Required]
         [Range(0,999999)]
+        [Precision(18, 2)]
         public decimal Price { get; set; }
         [Range(0, 999999)]
         [Required]
+        [Precision(18, 2)]
         public decimal Shoeprice { get; set; }
         public OrderStatus Status { get; set; }
         public Bill Bill { get; set; }

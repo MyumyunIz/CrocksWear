@@ -35,7 +35,7 @@ namespace DataLayer
         {
             try
             {
-                Bill billFromDb = await ReadAsync(key, false, false);
+                Bill billFromDb = await ReadAsync(key);
 
                 if (billFromDb != null)
                 {
@@ -53,7 +53,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<ICollection<Bill>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<ICollection<Bill>> ReadAllAsync(bool useNavigationalProperties = false)
         {
             try
             {
@@ -66,11 +66,6 @@ namespace DataLayer
                                  .Include(b => b.Orders);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
 
                 return await query.ToListAsync();
             }
@@ -80,7 +75,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<Bill> ReadAsync(int key, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<Bill> ReadAsync(int key, bool useNavigationalProperties = false)
         {
             try
             {
@@ -93,12 +88,7 @@ namespace DataLayer
                                  .Include(b => b.Orders);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
-
+                
                 return await query.FirstOrDefaultAsync(b => b.Id == key);
             }
             catch (Exception)
@@ -111,7 +101,7 @@ namespace DataLayer
         {
             try
             {
-                Bill billFromDb = await ReadAsync(item.Id, true, false);
+                Bill billFromDb = await ReadAsync(item.Id,useNavigationalProperties);
 
                 // Update scalar properties
                 billFromDb.Address = item.Address;

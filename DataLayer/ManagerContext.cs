@@ -9,7 +9,7 @@ using DataLayer;
 
 namespace DataLayer
 {
-    public class ManagerContext : IDB<Manager, int>
+    public class ManagerContext : IDB<Manager, string>
     {
         private readonly CrockDBContext dbContext;
 
@@ -31,11 +31,11 @@ namespace DataLayer
             }
         }
 
-        public async Task DeleteAsync(int key)
+        public async Task DeleteAsync(string key)
         {
             try
             {
-                Manager managerFromDb = await ReadAsync(key, false, false);
+                Manager managerFromDb = await ReadAsync(key);
 
                 if (managerFromDb != null)
                 {
@@ -53,7 +53,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<ICollection<Manager>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<ICollection<Manager>> ReadAllAsync(bool useNavigationalProperties = false)
         {
             try
             {
@@ -66,11 +66,7 @@ namespace DataLayer
                                  .Include(m => m.Bills);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
+                
 
                 return await query.ToListAsync();
             }
@@ -80,7 +76,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<Manager> ReadAsync(int key, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<Manager> ReadAsync(string key, bool useNavigationalProperties = false)
         {
             try
             {
@@ -93,11 +89,7 @@ namespace DataLayer
                                  .Include(m => m.Bills);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
+                
 
                 return await query.FirstOrDefaultAsync(m => m.Id == key);
             }
@@ -111,13 +103,12 @@ namespace DataLayer
         {
             try
             {
-                Manager managerFromDb = await ReadAsync(item.Id, true, false);
+                Manager managerFromDb = await ReadAsync(item.Id, useNavigationalProperties);
 
                 // Update scalar properties
-                managerFromDb.Name = item.Name;
+                managerFromDb.UserName = item.UserName;
                 managerFromDb.Email = item.Email;
-                managerFromDb.Password = item.Password;
-                managerFromDb.Phone = item.Phone;
+                managerFromDb.PhoneNumber = item.PhoneNumber;
 
                 // Update navigational properties if requested
                 if (useNavigationalProperties)

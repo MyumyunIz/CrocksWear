@@ -25,9 +25,9 @@ namespace TestingLayer
         {
             u1 = new User("david","davidgrizman@gmail.com");
             await context.CreateAsync(u1);
-            m1 = new Manager("myumyun", "myumyun@gmail.com", "12313234", "0894458934");
+            m1 = new Manager("myumyun", "myumyun@gmail.com", "0894458934");
             await managerContext.CreateAsync(m1);
-            s1 = new Shoe(38,"nike","airmax" , 159,"white","obuvki",m1);
+            s1 = new Shoe(38,"nike","airmax" , 159,"white","obuvki",new byte[1],m1);
             await shoeContext.CreateAsync(s1);
             o1 = new Order(u1,s1,2,318,158, OrderStatus.InProgress);
             await orderContext.CreateAsync(o1);
@@ -60,7 +60,7 @@ namespace TestingLayer
         [Test]
         public async Task Read()
         {
-            User readUser = await context.ReadAsync(u1.Id,false,false);
+            User readUser = await context.ReadAsync(u1.Id,false);
 
          
             Assert.AreEqual(u1, readUser, "Read does not return the same object!");
@@ -71,7 +71,7 @@ namespace TestingLayer
         [Test]
         public async Task ReadWithNavigationalProperties()
         {
-            User readUser = await context.ReadAsync(u1.Id,true,false);
+            User readUser = await context.ReadAsync(u1.Id,true);
 
             Assert.That(readUser.Orders.Contains(o1), "o1 is not in the orders list!");
 

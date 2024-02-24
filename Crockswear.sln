@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingLayer", "TestingLaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCPresentationLayer", "MVCPresentationLayer\MVCPresentationLayer.csproj", "{92C74241-85E1-420D-A013-1AC2909A8C17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{5BACED25-105E-45C9-86E0-D26343970A28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{5BACED25-105E-45C9-86E0-D26343970A28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempConsoleApp", "TempConsoleApp\TempConsoleApp.csproj", "{880FF9D8-CFAA-428A-9791-CFCD36E64985}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 		{5BACED25-105E-45C9-86E0-D26343970A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BACED25-105E-45C9-86E0-D26343970A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BACED25-105E-45C9-86E0-D26343970A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{880FF9D8-CFAA-428A-9791-CFCD36E64985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880FF9D8-CFAA-428A-9791-CFCD36E64985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880FF9D8-CFAA-428A-9791-CFCD36E64985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880FF9D8-CFAA-428A-9791-CFCD36E64985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

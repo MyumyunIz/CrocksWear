@@ -35,7 +35,7 @@ namespace DataLayer
         {
             try
             {
-                User userFromDb = await ReadAsync(key, false, false);
+                User userFromDb = await ReadAsync(key);
 
                 if (userFromDb != null)
                 {
@@ -53,7 +53,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<ICollection<User>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<ICollection<User>> ReadAllAsync(bool useNavigationalProperties = false)
         {
             try
             {
@@ -65,11 +65,7 @@ namespace DataLayer
                     query = query.Include(u => u.Orders);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
+                
 
                 return await query.ToListAsync();
             }
@@ -79,7 +75,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<User> ReadAsync(string key, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<User> ReadAsync(string key, bool useNavigationalProperties = false)
         {
             try
             {
@@ -91,11 +87,7 @@ namespace DataLayer
                     query = query.Include(u => u.Orders);
                 }
 
-                // Set read-only option if needed
-                if (isReadOnly)
-                {
-                    query = query.AsNoTrackingWithIdentityResolution();
-                }
+                
 
                 return await query.FirstOrDefaultAsync(u => u.Id == key);
             }
@@ -109,7 +101,7 @@ namespace DataLayer
         {
             try
             {
-                User userFromDb = await ReadAsync(item.Id, true, false);
+                User userFromDb = await ReadAsync(item.Id,useNavigationalProperties);
 
                userFromDb.UserName = item.UserName;
                 userFromDb.Email = item.Email;

@@ -11,9 +11,9 @@ namespace DataLayer
         {
             Task CreateAsync(T item);
 
-            Task<T> ReadAsync(K key, bool useNavigationalProperties = false, bool isReadOnly = true);
+            Task<T> ReadAsync(K key, bool useNavigationalProperties = false);
 
-            Task<ICollection<T>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true);
+            Task<ICollection<T>> ReadAllAsync(bool useNavigationalProperties = false);
 
             Task UpdateAsync(T item, bool useNavigationalProperties = false);
 

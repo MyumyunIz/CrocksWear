@@ -24,7 +24,7 @@ namespace ConsoleApp2
                 options.Password.RequiredLength = 5;
 
                 DbContextOptionsBuilder builder = new DbContextOptionsBuilder();
-                builder.UseSqlServer("Server=DESKTOP-J5Q5EQD;Database=FoodDB;Trusted_Connection=True;TrustServerCertificate=True;");
+                builder.UseSqlServer("Server=DESKTOP-J5Q5EQD;Database=Crockswear;Trusted_Connection=True;TrustServerCertificate=True;");
                 //"Server=III-PC\\SQLEXPRESS;Database=MVCProjectTemplateDb;Trusted_Connection=True;"
 
                 CrockDBContext dbContext = new CrockDBContext(builder.Options);
@@ -36,10 +36,11 @@ namespace ConsoleApp2
                     new Logger<UserManager<User>>(new LoggerFactory())
                     );
 
-                IdentityContext userContext = new IdentityContext(userManager,dbContext);
+                IdentityContext userContext = new IdentityContext(dbContext,userManager);
 
                 dbContext.Roles.Add(new IdentityRole("Administrator") { NormalizedName = "ADMINISTRATOR" });
                 dbContext.Roles.Add(new IdentityRole("User") { NormalizedName = "USER" });
+                dbContext.Roles.Add(new IdentityRole("Manager") { NormalizedName = "MANAGER" });
                 await dbContext.SaveChangesAsync();
 
                 Tuple<IdentityResult, User> result = await userContext.CreateUserAsync("4ChanUser", "JaxEnjoyer", "brolikesthem<10@abv.bg", Role.Administrator);

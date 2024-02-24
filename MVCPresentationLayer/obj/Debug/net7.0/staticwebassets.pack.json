@@ -5,12 +5,32 @@
       "PackagePath": "staticwebassets\\MVCPresentationLayer.bundle.scp.css"
     },
     {
+      "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\css\\Find.css",
+      "PackagePath": "staticwebassets\\css\\Find.css"
+    },
+    {
+      "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\css\\Home.css",
+      "PackagePath": "staticwebassets\\css\\Home.css"
+    },
+    {
       "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\img\\CrocksCollection.jpg",
+      "PackagePath": "staticwebassets\\img\\CrocksCollection.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\img\\nikecollection.jpg",
+      "PackagePath": "staticwebassets\\img\\nikecollection.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\img\\shoe.jpg",
+      "PackagePath": "staticwebassets\\img\\shoe.jpg"
     },
     {
       "Id": "D:\\Projects\\Github Repositories\\CrocksWear\\MVCPresentationLayer\\wwwroot\\js\\site.js",
