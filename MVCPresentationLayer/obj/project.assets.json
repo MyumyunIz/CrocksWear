@@ -4196,7 +4196,8 @@
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
           "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
-          "Microsoft.Extensions.Identity.Core": "7.0.15"
+          "Microsoft.Extensions.Identity.Core": "7.0.15",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12"
         },
         "compile": {
           "bin/placeholder/BusinessLayer.dll": {}
@@ -4214,7 +4215,8 @@
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
           "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
-          "Microsoft.Extensions.Identity.Core": "7.0.15"
+          "Microsoft.Extensions.Identity.Core": "7.0.15",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12"
         },
         "compile": {
           "bin/placeholder/DataLayer.dll": {}
@@ -4234,6 +4236,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
           "Microsoft.Extensions.Identity.Core": "7.0.15",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12",
           "System.Security.Cryptography.ProtectedData": "7.0.1"
         },
         "compile": {
@@ -12002,6 +12005,7 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.15",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.15",
       "Microsoft.EntityFrameworkCore >= 7.0.15",
+      "Microsoft.EntityFrameworkCore.Design >= 7.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.15",
       "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.15",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.15",
@@ -12073,6 +12077,12 @@
             "version": "[7.0.15, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.15, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[7.0.15, )"
           },

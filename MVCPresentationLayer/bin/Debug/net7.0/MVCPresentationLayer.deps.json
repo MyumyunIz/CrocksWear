@@ -13,6 +13,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.15",
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
           "Microsoft.EntityFrameworkCore": "7.0.15",
+          "Microsoft.EntityFrameworkCore.Design": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.15",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.15",
@@ -2773,7 +2774,8 @@
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
           "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
-          "Microsoft.Extensions.Identity.Core": "7.0.15"
+          "Microsoft.Extensions.Identity.Core": "7.0.15",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12"
         },
         "runtime": {
           "BusinessLayer.dll": {}
@@ -2786,7 +2788,8 @@
           "Microsoft.AspNetCore.Identity.UI": "7.0.15",
           "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
-          "Microsoft.Extensions.Identity.Core": "7.0.15"
+          "Microsoft.Extensions.Identity.Core": "7.0.15",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12"
         },
         "runtime": {
           "DataLayer.dll": {}
@@ -2801,6 +2804,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
           "Microsoft.Extensions.Identity.Core": "7.0.15",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12",
           "System.Security.Cryptography.ProtectedData": "7.0.1"
         },
         "runtime": {
