@@ -13,7 +13,7 @@ namespace ServiceLayer
         public static UserContext usersContext;
         public static OrderContext ordersContext;
         public static ShoeContext shoesContext;
-        public static BillContext billsContext;
+        public static TransactionContext billsContext;
         public static ManagerContext managersContext;
 
         public static CrockDBContext GetDbContext()
@@ -80,7 +80,7 @@ namespace ServiceLayer
             shoesContext = new ShoeContext(GetDbContext());
         }
 
-        public static BillContext GetBillsContext()
+        public static TransactionContext GetBillsContext()
         {
             if (billsContext == null)
             {
@@ -92,7 +92,7 @@ namespace ServiceLayer
 
         public static void SetBillsContext()
         {
-            billsContext = new BillContext(GetDbContext());
+            billsContext = new TransactionContext(GetDbContext());
         }
 
         public static ManagerContext GetManagersContext()

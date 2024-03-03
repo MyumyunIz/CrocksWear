@@ -12,14 +12,17 @@ namespace BusinessLayer
 {
     public class User : IdentityUser
     {
-        
-        
-        
+
+        public Cart Cart { get; set; }
+        public Manager Manager { get; set; }
         public List<Order> Orders { get; set; }
         
 
         public User() {
             Orders = new List<Order>();
+            Manager = new Manager();
+            Cart = new Cart();
+
         }
 
         public User(string username, string email) 
@@ -27,11 +30,11 @@ namespace BusinessLayer
             this.UserName= username;
             this.Email= email;
 
-
+            Manager = new Manager();
             Orders = new List<Order>();
-
+            Cart = new Cart();
         }
-        
+
         public override string ToString()
         {
             return string.Format($"{Id} {UserName} {Email}");

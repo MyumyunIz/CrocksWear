@@ -114,7 +114,7 @@ namespace DataLayer
             {
                 if(useNavigationalProperties)
                 {
-                    return  await context.Users.Include(x => x.Orders).SingleOrDefaultAsync(x=>x.Id==key);
+                    return  await context.Users.Include(x => x.Orders).Include(x=>x.Manager).Include(x => x.Cart).SingleOrDefaultAsync(x=>x.Id==key);
                 }
                 return await userManager.FindByIdAsync(key);
 
@@ -131,7 +131,7 @@ namespace DataLayer
             {
                 if(useNavigationalProperties)
                 {
-                    return await context.Users.Include(x => x.Orders).ToListAsync();
+                    return await context.Users.Include(x => x.Orders).Include(x=>x.Manager).Include(x=>x.Cart).ToListAsync();
                 }
                 return await context.Users.ToListAsync();
             }

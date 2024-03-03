@@ -1,0 +1,118 @@
+﻿@model BusinessLayer.Order
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" id="quantity" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shoe" class="control-label"></label>
+                <select asp-for="Shoe" class="form-control" asp-items="ViewBag.Shoes" id="productIdSelect"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" id="productTotalPriceDisplay" readonly />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Shoeprice" class="control-label"></label>
+                <input asp-for="Shoeprice" class="form-control" id="productPriceDisplay" readonly>siduoah
+                <span asp-validation-for="Shoeprice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var productIdSelect = document.getElementById('productIdSelect');
+        var productPriceDisplay = document.getElementById('productPriceDisplay');
+        var productTotalPriceDisplay = document.getElementById('productTotalPriceDisplay');
+        var quantity = document.getElementById('quantity');
+        if (quantity.value == null) {
+            quantity.value = 1;
+        }
+       
+        Get();
+
+        productIdSelect.addEventListener('change', Get );
+        quantity.addEventListener('change', Get);
+
+
+        function Get() {
+            var productId = productIdSelect.value;
+
+            if (productId) {
+                // Create a new XMLHttpRequest
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/Orders/GetPrice?shoeId=' + productId, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // Parse the JSON response
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.success) {
+                            productPriceDisplay.value = response.price;
+                            // int price = int.parse(response.price)
+                            // int q = int.parse(quality.value)
+                            productTotalPriceDisplay.value = response.price * quantity.value;
+                        } else {
+                            // Handle error, product not found, etc.
+                            alert(response.message);
+                        }
+                    }
+                };
+                xhr.send();
+            } else {
+                productPriceDisplay.value = ''; // Clear the price if selection is cleared
+            }
+        }
+
+        // productIdSelect.addEventListener('change', function () {
+        //     var productId = this.value;
+            
+        //     if (productId) {
+        //         // Create a new XMLHttpRequest
+        //         var xhr = new XMLHttpRequest();
+        //         xhr.open('GET', '/Orders/GetPrice?shoeId=' + productId, true);
+        //         xhr.onreadystatechange = function () {
+        //             if (xhr.readyState == 4 && xhr.status == 200) {
+        //                 // Parse the JSON response
+        //                 var response = JSON.parse(xhr.responseText);
+        //                 if (response.success) {
+        //                     productPriceDisplay.value = response.price;
+        //                     // int price = int.parse(response.price)
+        //                     // int q = int.parse(quality.value)
+        //                     productTotalPriceDisplay.value = response.price*quantity.value;
+        //                 } else {
+        //                     // Handle error, product not found, etc.
+        //                     alert(response.message);
+        //                 }
+        //             }
+        //         };
+        //         xhr.send();
+        //     } else {
+        //         productPriceDisplay.value = ''; // Clear the price if selection is cleared
+        //     }
+        // });
+    });
+</script>

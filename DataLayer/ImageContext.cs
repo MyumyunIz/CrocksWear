@@ -85,13 +85,10 @@ namespace DataLayer
                 if (imageFromDb != null)
                 {
                     imageFromDb.Image_bytes = item.Image_bytes; // Updating the bytes directly
-
                     await dbContext.SaveChangesAsync();
+
                 }
-                else
-                {
-                    throw new ArgumentException("Image with that id does not exist for update!");
-                }
+                
             }
             catch (Exception)
             {

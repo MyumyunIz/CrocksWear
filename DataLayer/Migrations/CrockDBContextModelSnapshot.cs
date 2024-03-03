@@ -17,12 +17,12 @@ namespace DataLayer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.15")
+                .HasAnnotation("ProductVersion", "7.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BusinessLayer.Bill", b =>
+            modelBuilder.Entity("BusinessLayer.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,32 +30,12 @@ namespace DataLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BankCard")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ManagerId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ManagerId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Bill");
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("BusinessLayer.Image", b =>
@@ -77,7 +57,20 @@ namespace DataLayer.Migrations
 
                     b.HasIndex("ShoeId");
 
-                    b.ToTable("Image");
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Manager", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Managers");
                 });
 
             modelBuilder.Entity("BusinessLayer.Order", b =>
@@ -88,7 +81,7 @@ namespace DataLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BillId")
+                    b.Property<int?>("CartId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -109,18 +102,23 @@ namespace DataLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TransactionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BillId");
+                    b.HasIndex("CartId");
 
                     b.HasIndex("ShoeId");
 
+                    b.HasIndex("TransactionId");
+
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("BusinessLayer.Shoe", b =>
@@ -149,9 +147,8 @@ namespace DataLayer.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("ManagerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -169,7 +166,43 @@ namespace DataLayer.Migrations
 
                     b.HasIndex("ManagerId");
 
-                    b.ToTable("Shoe");
+                    b.ToTable("Shoes");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Transaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankCard")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManagerId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bills");
                 });
 
             modelBuilder.Entity("BusinessLayer.User", b =>
@@ -178,6 +211,9 @@ namespace DataLayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CartId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -196,6 +232,9 @@ namespace DataLayer.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -226,6 +265,10 @@ namespace DataLayer.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ManagerId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -235,8 +278,6 @@ namespace DataLayer.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -372,14 +413,50 @@ namespace DataLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BusinessLayer.Manager", b =>
+            modelBuilder.Entity("BusinessLayer.Image", b =>
                 {
-                    b.HasBaseType("BusinessLayer.User");
-
-                    b.ToTable("Manager");
+                    b.HasOne("BusinessLayer.Shoe", null)
+                        .WithMany("Images")
+                        .HasForeignKey("ShoeId");
                 });
 
-            modelBuilder.Entity("BusinessLayer.Bill", b =>
+            modelBuilder.Entity("BusinessLayer.Order", b =>
+                {
+                    b.HasOne("BusinessLayer.Cart", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("CartId");
+
+                    b.HasOne("BusinessLayer.Shoe", "Shoe")
+                        .WithMany("Orders")
+                        .HasForeignKey("ShoeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BusinessLayer.Transaction", "Transaction")
+                        .WithMany("Orders")
+                        .HasForeignKey("TransactionId");
+
+                    b.HasOne("BusinessLayer.User", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Shoe");
+
+                    b.Navigation("Transaction");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Shoe", b =>
+                {
+                    b.HasOne("BusinessLayer.Manager", "Manager")
+                        .WithMany("Shoes")
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Manager");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Transaction", b =>
                 {
                     b.HasOne("BusinessLayer.Manager", null)
                         .WithMany("Bills")
@@ -388,49 +465,27 @@ namespace DataLayer.Migrations
                     b.HasOne("BusinessLayer.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BusinessLayer.Image", b =>
+            modelBuilder.Entity("BusinessLayer.User", b =>
                 {
-                    b.HasOne("BusinessLayer.Shoe", null)
-                        .WithMany("Gallery")
-                        .HasForeignKey("ShoeId");
-                });
-
-            modelBuilder.Entity("BusinessLayer.Order", b =>
-                {
-                    b.HasOne("BusinessLayer.Bill", "Bill")
-                        .WithMany("Orders")
-                        .HasForeignKey("BillId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("BusinessLayer.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BusinessLayer.Shoe", "Shoe")
-                        .WithMany("Orders")
-                        .HasForeignKey("ShoeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("BusinessLayer.User", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Bill");
-
-                    b.Navigation("Shoe");
-                });
-
-            modelBuilder.Entity("BusinessLayer.Shoe", b =>
-                {
                     b.HasOne("BusinessLayer.Manager", "Manager")
-                        .WithMany("Shoes")
+                        .WithMany()
                         .HasForeignKey("ManagerId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cart");
 
                     b.Navigation("Manager");
                 });
@@ -486,28 +541,7 @@ namespace DataLayer.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BusinessLayer.Manager", b =>
-                {
-                    b.HasOne("BusinessLayer.User", null)
-                        .WithOne()
-                        .HasForeignKey("BusinessLayer.Manager", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BusinessLayer.Bill", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("BusinessLayer.Shoe", b =>
-                {
-                    b.Navigation("Gallery");
-
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("BusinessLayer.User", b =>
+            modelBuilder.Entity("BusinessLayer.Cart", b =>
                 {
                     b.Navigation("Orders");
                 });
@@ -517,6 +551,23 @@ namespace DataLayer.Migrations
                     b.Navigation("Bills");
 
                     b.Navigation("Shoes");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Shoe", b =>
+                {
+                    b.Navigation("Images");
+
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("BusinessLayer.Transaction", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("BusinessLayer.User", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

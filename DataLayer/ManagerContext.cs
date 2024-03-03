@@ -9,7 +9,7 @@ using DataLayer;
 
 namespace DataLayer
 {
-    public class ManagerContext : IDB<Manager, string>
+    public class ManagerContext : IDB<Manager, int>
     {
         private readonly CrockDBContext dbContext;
 
@@ -31,7 +31,7 @@ namespace DataLayer
             }
         }
 
-        public async Task DeleteAsync(string key)
+        public async Task DeleteAsync(int key)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace DataLayer
             }
         }
 
-        public async Task<Manager> ReadAsync(string key, bool useNavigationalProperties = false)
+        public async Task<Manager> ReadAsync(int key, bool useNavigationalProperties = false)
         {
             try
             {
@@ -106,9 +106,7 @@ namespace DataLayer
                 Manager managerFromDb = await ReadAsync(item.Id, useNavigationalProperties);
 
                 // Update scalar properties
-                managerFromDb.UserName = item.UserName;
-                managerFromDb.Email = item.Email;
-                managerFromDb.PhoneNumber = item.PhoneNumber;
+                
 
                 // Update navigational properties if requested
                 if (useNavigationalProperties)
@@ -126,10 +124,10 @@ namespace DataLayer
                     }
                     managerFromDb.Shoes = shoes;
 
-                    List<Bill> bills = item.Bills.ToList();
+                    List<Transaction> bills = item.Bills.ToList();
                     for (var i = 0; i < bills.Count; i++)
                     {
-                        Bill billDb = await dbContext.Bills.FindAsync(bills[i].Id);
+                        Transaction billDb = await dbContext.Bills.FindAsync(bills[i].Id);
                         if (billDb != null)
                         {
                             bills[i] = billDb;

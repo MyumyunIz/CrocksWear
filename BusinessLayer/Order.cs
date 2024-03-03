@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,24 +30,26 @@ namespace BusinessLayer
         [Precision(18, 2)]
         public decimal Shoeprice { get; set; }
         public OrderStatus Status { get; set; }
-        public Bill Bill { get; set; }
+        //[AllowNull]
+        public Transaction? Transaction { get; set; }
 
 
         public Order    ()
         {
-
+            //Bill = new Bill ();
         }
 
 
 
-        public Order(User user, Shoe shoe, int quantity, decimal price, decimal shoeprice, OrderStatus status)
+        public Order( Shoe shoe, int quantity, decimal price, decimal shoeprice, OrderStatus status)
         {
             this.Shoe= shoe;
             this.Quantity= quantity;
             this.Price= price;
             this.Shoeprice= shoeprice;
             this.Status= status;
-               
+
+            //Bill = new Bill();
 
         }
 

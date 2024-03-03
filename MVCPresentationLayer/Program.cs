@@ -34,13 +34,26 @@ namespace MVCPresentationLayer
                 .AddEntityFrameworkStores<CrockDBContext>()
                 .AddDefaultTokenProviders();
 
-            builder.Services.AddIdentityCore<Manager>().AddEntityFrameworkStores<CrockDBContext>();
-
 
             builder.Services.AddScoped<IEmailSender, EmailSenderManager>();
+
             builder.Services.AddScoped<IdentityManager, IdentityManager>();
             builder.Services.AddScoped<IdentityContext, IdentityContext>();
-            
+
+            builder.Services.AddScoped<ShoeManager, ShoeManager>();
+            builder.Services.AddScoped<ShoeContext, ShoeContext>();
+
+            builder.Services.AddScoped<ManagerManager, ManagerManager>();
+            builder.Services.AddScoped<ManagerContext, ManagerContext>();
+
+            builder.Services.AddScoped<OrderManager, OrderManager>();
+            builder.Services.AddScoped<OrderContext, OrderContext>();
+
+            builder.Services.AddScoped<TransactionManager, TransactionManager>();
+            builder.Services.AddScoped<TransactionContext, TransactionContext>();
+
+            builder.Services.AddScoped<CartManager, CartManager>();
+            builder.Services.AddScoped<CartContext, CartContext>();
 
 
             // Add services to the container.

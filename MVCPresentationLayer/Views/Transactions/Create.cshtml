@@ -1,0 +1,126 @@
+﻿@model BusinessLayer.Transaction
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h1>Create</h1>
+
+<h4>Transaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Assuming Transaction has a User property -->
+            @* <div class="form-group">
+                <label asp-for="User" class="control-label"></label>
+                <select asp-for="User.Id" class="form-control" asp-items="ViewBag.Users"></select>
+            </div> *@
+
+            <div class="form-group">
+                @* <label asp-for="Orders" class="control-label"></label>
+                <select asp-for="Orders" class="form-control" asp-items="ViewBag.Orders"></select>
+ *@
+
+                @for (int i = 0; i < ViewBag.Orders.Count; i++)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Orders" value="@ViewBag.Orders[i].Id" id="order_@ViewBag.Orders[i].Id">
+                        <label class="form-check-label" for="order_@ViewBag.Orders[i].Id">
+                            @ViewBag.Orders[i].Shoe.Brand - @ViewBag.Orders[i].Shoe.Model - $@ViewBag.Orders[i].Price
+                        </label>
+                    </div>
+
+                }
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BankCard" class="control-label"></label>
+                <input asp-for="BankCard" class="form-control" />
+                <span asp-validation-for="BankCard" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" id="productTotalPriceDisplay" readonly />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <!-- Additional fields for Transaction -->
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    var forms = document.getElementsByClassName("form-check");
+
+    for (var i = 0; i < forms.length; i++) {
+
+        var checkbox = forms[i].querySelector('input[type="checkbox"]');
+
+
+       
+            checkbox.addEventListener("change", function () {
+                Price();
+                Get();
+            });
+          
+    }
+
+    function Price() {
+
+        var checkedOrderIds ="";
+        
+        for (var i = 0; i < forms.length; i++) {
+            
+            var checkbox = forms[i].querySelector('input[type="checkbox"]');
+
+            
+            if (checkbox.checked) {
+                checkedOrderIds += checkbox.value + " ";
+            }
+        }
+      
+        Get();
+        function Get() {
+            var productTotalPriceDisplay = document.getElementById("productTotalPriceDisplay");
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/Transactions/GetPrice', true);
+            xhr.setRequestHeader('Content-Type', 'application/json'); // Set the content type to JSON
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        productTotalPriceDisplay.value = response.price; // or .value if it's an input
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            };
+
+            
+            xhr.send(JSON.stringify(checkedOrderIds));
+        }
+        
+    }
+    
+</script>

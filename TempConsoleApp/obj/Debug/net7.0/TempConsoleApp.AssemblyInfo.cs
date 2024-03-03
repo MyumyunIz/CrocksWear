@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TempConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b09aed6b1fa8c65b214c7dda498c3904fc81994b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91971bef17d8361981b1c9d40407ca578b8d9eab")]
 [assembly: System.Reflection.AssemblyProductAttribute("TempConsoleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TempConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

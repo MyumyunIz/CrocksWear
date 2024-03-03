@@ -30,12 +30,12 @@ namespace ServiceLayer
             return await shoeContext.ReadAllAsync(useNavigationalProperties);
         }
 
-        public async void UpdateAsync(Shoe item, bool useNavigationalProperties = false)
+        public async Task UpdateAsync(Shoe item, bool useNavigationalProperties = false)
         {
             await shoeContext.UpdateAsync(item, useNavigationalProperties);
         }
 
-        public async void DeleteAsync(int key)
+        public async Task DeleteAsync(int key)
         {
             await shoeContext.DeleteAsync(key);
         }

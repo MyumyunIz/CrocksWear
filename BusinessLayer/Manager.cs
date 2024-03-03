@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,29 +9,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class Manager: User
+    public class Manager
     {
-        
-
+        [Key]
+        public int Id { get; set; }
+        //[Required]
+        //public User User { get; set; }
         public List<Shoe> Shoes { get; set; }
-        public List<Bill> Bills { get; set; }
+        public List<Transaction> Bills { get; set; }
 
         public Manager() {
-            Orders = new List<Order> ();
-            Bills= new List<Bill>();
+            
+            Bills= new List<Transaction>();
             Shoes = new List<Shoe>();
         }
 
-        public Manager(string name, string email, string phone) {
-            this.UserName= name;
-            this.Email= email;
-            this.PhoneNumber= phone;
+        //public Manager(User user)
+        //{
 
-            Orders = new List<Order>();
-
-            Bills = new List<Bill>();
-            Shoes = new List<Shoe>();
-        }
+        //    Bills = new List<Bill>();
+        //    Shoes = new List<Shoe>();
+        //}
 
     }
 }

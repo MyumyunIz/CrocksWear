@@ -63,7 +63,7 @@ namespace DataLayer
                 if (useNavigationalProperties)
                 {
                     query = query.Include(o => o.Shoe)
-                                 .Include(o => o.Bill);
+                                 .Include(o => o.Transaction);
                 }
 
                 // Set read-only option if needed
@@ -87,7 +87,7 @@ namespace DataLayer
                 if (useNavigationalProperties)
                 {
                     query = query.Include(o => o.Shoe)
-                                 .Include(o => o.Bill);
+                                 .Include(o => o.Transaction);
                 }
 
                 
@@ -123,19 +123,23 @@ namespace DataLayer
                     {
                         orderFromDb.Shoe = item.Shoe;
                     }
-                    if (item.Bill != null)
+                    if (item.Transaction != null)
                     {
-                        Bill bill = await dbContext.Bills.FindAsync(item.Bill.Id);
+                        Transaction bill = await dbContext.Bills.FindAsync(item.Transaction.Id);
                         if (bill != null)
                         {
-                            orderFromDb.Bill = bill;
+                            orderFromDb.Transaction = bill;
+                        }
+                        else
+                        {
+                            orderFromDb.Transaction = item.Transaction;
                         }
                         
                     }
 
                     else
                     {
-                        orderFromDb.Bill = null;
+                        orderFromDb.Transaction = null;
                     }
                 }
 

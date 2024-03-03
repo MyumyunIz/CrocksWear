@@ -25,11 +25,12 @@ namespace TestingLayer
         {
             u1 = new User("david","davidgrizman@gmail.com");
             await context.CreateAsync(u1);
-            m1 = new Manager("myumyun", "myumyun@gmail.com", "0894458934");
+            m1 = new Manager();
             await managerContext.CreateAsync(m1);
             s1 = new Shoe(38,"nike","airmax" , 159,"white","obuvki",new byte[1],m1);
             await shoeContext.CreateAsync(s1);
-            o1 = new Order(u1,s1,2,318,158, OrderStatus.InProgress);
+            //o1 = new Order(u1,s1,2,318,158, OrderStatus.InProgress);
+            o1 = new Order();
             await orderContext.CreateAsync(o1);
             u1.Orders.Add(o1);
             

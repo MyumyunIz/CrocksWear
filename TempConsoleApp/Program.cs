@@ -11,7 +11,7 @@ namespace TempConsoleApp
             var dbContext = new CrockDBContext();
             var shoeContext = new ShoeContext(dbContext);
             var shoeManager = new ShoeManager(shoeContext);
-            Manager m = new Manager("Mnmnh", "m@gmail.com", "124455");
+            Manager m = new Manager();
 
             Shoe s = new Shoe(40, "nike", "airmax", 100, "white", "descriptiontext", new byte[2],m);
             await shoeManager.CreateAsync(s);

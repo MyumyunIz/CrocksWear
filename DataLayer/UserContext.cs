@@ -62,7 +62,7 @@ namespace DataLayer
                 // Include navigational properties if needed
                 if (useNavigationalProperties)
                 {
-                    query = query.Include(u => u.Orders);
+                    query = query.Include(u => u.Orders).Include(x=>x.Manager).Include(x => x.Cart);
                 }
 
                 
@@ -84,7 +84,7 @@ namespace DataLayer
                 // Include navigational properties if needed
                 if (useNavigationalProperties)
                 {
-                    query = query.Include(u => u.Orders);
+                    query = query.Include(u => u.Orders).Include(x => x.Manager).Include(x => x.Cart);
                 }
 
                 
@@ -131,6 +131,29 @@ namespace DataLayer
                     {
                         userFromDb.Orders = null;
                     }
+
+                    Manager managerfromdb = await dbContext.Managers.FirstOrDefaultAsync(x=>x.Id==item.Manager.Id);
+                    if(managerfromdb != null)
+                    {
+                        userFromDb.Manager = managerfromdb;
+                    }
+                    else
+                    {
+                        userFromDb.Manager = item.Manager;
+                    }
+
+
+
+                    Cart cartfromdb = await dbContext.Carts.FirstOrDefaultAsync(x=>x.Id== item.Cart.Id);
+                    if(cartfromdb != null)
+                    {
+                        userFromDb.Cart = cartfromdb;
+                    }
+                    else
+                    {
+                        userFromDb.Cart = item.Cart;
+                    }
+
                 }
 
                 await dbContext.SaveChangesAsync();
