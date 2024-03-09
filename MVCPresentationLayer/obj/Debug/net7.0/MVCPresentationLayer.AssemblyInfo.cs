@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVCPresentationLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91971bef17d8361981b1c9d40407ca578b8d9eab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49a6ea388a27e12769cdecb47ef86da77c999ea0")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVCPresentationLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVCPresentationLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

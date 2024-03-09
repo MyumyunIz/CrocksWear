@@ -11,6 +11,9 @@ using ServiceLayer;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.IO.Compression;
 
 namespace MVCPresentationLayer.Controllers
 {
@@ -46,7 +49,7 @@ namespace MVCPresentationLayer.Controllers
             {
                 return NotFound();
             }
-
+            
             var shoe = await shoeManager.ReadAsync((int)id,true);
             if (shoe == null)
             {
@@ -69,10 +72,30 @@ namespace MVCPresentationLayer.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //[Bind("Id,Size,Brand,Model,Price,Color,Description,Icon_img")] Shoe shoe
-        public async Task<IActionResult> Create(IFormCollection iformcollection)
+        public async Task<IActionResult> Create(IFormCollection iformcollection,IFormFile Icon_img)
         {
             
             User user = await identityManager.ReadAsync(User.FindFirstValue(ClaimTypes.NameIdentifier),true);
+
+            byte[] Icon_img_bytes = Array.Empty<byte>();
+            if(Icon_img.Length> 0) 
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await Icon_img.CopyToAsync(memoryStream);
+
+                    // Upload the file if less than 2 MB
+                    if (memoryStream.Length < 2097152)
+                    {
+
+                        Icon_img_bytes = memoryStream.ToArray();
+                       
+                    }
+                    
+                }
+            }
+
+
 
             Manager manager;
             if (!await userManager.IsInRoleAsync(user, Role.Manager.ToString()))
@@ -86,7 +109,7 @@ namespace MVCPresentationLayer.Controllers
                 //await userManager.UpdateAsync(user);
             }
             manager = await managerManager.ReadAsync(user.Manager.Id);
-            Shoe shoe = new Shoe(int.Parse(iformcollection["Size"]), iformcollection["Brand"], iformcollection["Model"], decimal.Parse(iformcollection["Price"]), iformcollection["Color"], iformcollection["Description"], new byte[0],manager);
+            Shoe shoe = new Shoe(int.Parse(iformcollection["Size"]), iformcollection["Brand"], iformcollection["Model"], decimal.Parse(iformcollection["Price"]), iformcollection["Color"], iformcollection["Description"],Icon_img_bytes,manager);
             if (ModelState.IsValid)
             {
                 await shoeManager.CreateAsync(shoe);
@@ -117,12 +140,35 @@ namespace MVCPresentationLayer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,IFormCollection iformcollection)
+        public async Task<IActionResult> Edit(int id,IFormCollection iformcollection,IFormFile Icon_img)
         {
             User user = await identityManager.ReadAsync(User.FindFirstValue(ClaimTypes.NameIdentifier),true);
             Manager manager = await managerManager.ReadAsync(user.Manager.Id);
             Shoe shoe = new Shoe(int.Parse(iformcollection["Size"]), iformcollection["Brand"], iformcollection["Model"], decimal.Parse(iformcollection["Price"]), iformcollection["Color"], iformcollection["Description"], new byte[0], manager);
             shoe.Id = id;
+
+            if (Icon_img != null)
+            {
+                byte[] Icon_img_bytes = Array.Empty<byte>();
+                if (Icon_img.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await Icon_img.CopyToAsync(memoryStream);
+
+                        // Upload the file if less than 2 MB
+                        if (memoryStream.Length < 2097152)
+                        {
+
+                            Icon_img_bytes = memoryStream.ToArray();
+
+                            shoe.Icon_img = Icon_img_bytes; 
+                        }
+
+                    }
+                }
+            }
+            
             if (id != shoe.Id)
             {
                 return NotFound();
@@ -182,7 +228,8 @@ namespace MVCPresentationLayer.Controllers
             return await shoeManager.ReadAsync(id) is not null;
         }
 
-
         
+
+
     }
 }

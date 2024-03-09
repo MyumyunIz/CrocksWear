@@ -46,12 +46,15 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
+        @* <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Icon_img)
-        </dt>
-        <dd class = "col-sm-10">
+        </dt> *@
+        @* <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Icon_img)
-        </dd>
+        </dd> *@
+
+        <img src="data:image;base64,@System.Convert.ToBase64String(Model.Icon_img)" style="height:300px;width:auto;" />
+
     </dl>
 </div>
 <div>

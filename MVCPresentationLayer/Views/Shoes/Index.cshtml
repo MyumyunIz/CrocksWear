@@ -58,7 +58,9 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Icon_img)
+                @* @Html.DisplayFor(modelItem => item.Icon_img) *@
+                    @* <img src="data:image;base64,@System.Convert.ToBase64String(item.Icon_img)" style="width=25px;height=25px" /> *@
+                    Check details for image
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
